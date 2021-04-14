@@ -1,0 +1,22 @@
+0414
+1.安裝輸入法
+(1)左邊九宮格小黑點→板手圖案→地區語言→+→漢語(台灣)
+(2)沒有的話:終端視窗(小黑點上面)
+→# yum search cangjie 
+→# yum install ibus-table-chinese-cangjie
+→登出再登入
+(3)不知道輸入法名稱:
+GOOGLE 倉頡輸入法 CentOS
+
+2.管理系統:# systemctl
+  連線:# systemctl status cockpit.socket 
+
+3.關掉圖形介面:# init 3
+  開啟        :# init 5
+  ctrl+alt+f1 切換圖形介面
+           f2~f7  文字   
+
+4.公式: # 命令 參數(做什麼) 引數(對象/目標)
+    EX:   ls   -al          /tmp     
+ 
+  
