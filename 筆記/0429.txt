@@ -1,0 +1,35 @@
+鳥哥網站OS8第二堂課
+1.指令公式:#(管理者) <Command(指令)> <Options(參數，改變指令執行的方向)> <argument(引數，被下達指令的對象)>
+           $(User)
+  *大小寫很重要，很重要!會變成不同指令!!!
+  *$按su - root切換成管理者#，-是指login share
+2.文字介面下(Ctrl+alt+F3)輸入shift+Page up/down=翻頁
+3.看日期時間:
+ (1)date --help→看日期各種指令
+ (2)date +%Y/%m/%d/%H/%M，顯示年/月/日/時/分
+4.身份切換 su - 的使用:
+ (1)su - student→切換學生
+ (2)su - →切換root，要輸入密碼
+5.語系功能切換:LANG=zh_TW.utf8(或是zh_TW.big5/en_US.utf8)，這是暫時的
+6.忘記登入密碼:
+  MBR層攔截(開機選單按e)，在kernel層更改登入密碼，vmlinuz那串最後增加rd.break，然後ctrl+x，接下來步驟看截圖
+7.tab按鍵可以自動補齊指令，按一次沒反應就兩次(會出現指令選單)
+8.中斷指令:ctrl+c
+9.man(manual)指令要找關鍵字的話，輸入/要找的關鍵字，n往下找，N往上找，按q退出
+10.管線符號:|，EX:A指令 | B指令，意思是A指令的結果可讓B指令繼續用
+11.目錄:
+   /|
+    |-HOME.--|-Student.，兩個.代表上一層目錄
+    |        |-Peter
+    |-Root
+    |-etc 
+12.切換目錄:cd /var/spool/mail，輸入l(小寫L)s查看
+13.絕對路徑:cd /home/Peter
+   相對路徑:cd ../home/Peter
+
+14.目錄指令
+         File                 Directory
+新增   touch.vin.nano           mkdir
+修改   cp(複製).mv(移動)      mv. cp -rap
+刪除   rm.rm -f(暴力刪除法)     rmdir(空目錄).rm -fr(暴力刪)
+查詢   ls.ll.find               同左
