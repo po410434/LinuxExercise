@@ -1,0 +1,61 @@
+鳥哥第四堂
+1.       User      Group
+
+新增   useradd    groupadd
+
+修改   usermod    groupmod newgrp(暫時的)
+       passwd     gpasswd  
+
+刪除   userdel    groupdel
+
+查詢     id,w,who,whoami
+
+指令操作詳見網站
+
+2.刪除帳號:userdel -r 要刪除的帳號，如果只打userdel會刪不乾淨
+
+3.新建使用者並加入群組:useradd -G 群組 使用者
+
+4.使用 passwd --stdin 的方式來給予密碼時，密碼會紀錄到螢幕與 history 的環境中，對於大量建置帳號時，會是一個很好用的工具：echo 密碼 | passwd --stdin(標準輸入) 使用者
+
+5.把使用者新增到群組，而原本群組不刪除: usermod -a -G 群組 使用者 
+
+6.查看使用者狀態: id 使用者
+7.查看群組狀態: grep 群組 /etc/group
+
+8.檔案屬性: p→pipline
+            s→socket
+
+9.               File           Directory
+         
+chmod u +沒r    內容可讀      將檔案列表  
+      g -空
+      o =格w    可編修        可新增/刪除檔案 
+      a        (不一定可刪) 
+
+           x    可執行        可執行
+           
+           s    SetUID        shell(SetUID.SetGID)
+                              
+           t                   sticky bit
+
+
+10.把檔案更改成不同使用者/群組:chgrp 要換給誰 更改對象
+                               chown 要換給誰 更改對象
+
+11.權限簡易輸入法: r=4 w=2 x=1 -=0
+   ex:rwxr-xr-x→r+w+x=7,r+-+x=5，所以是755，可用chmod 755來代替輸入
+   如果完整輸入:chmod u=rwx,g=rwx,o=rwx 要改的檔案，rwx看題目需求更改
+
+12.修改時間:touch -t 時間(05031400之類) 檔案
+   
+------------ 
+鳥哥第五堂
+
+1.program(程式)→執行→process(程序)[PID.Mem.CPU.state.PI.NI.UID.Name.PPID]
+                           |---->process
+                       fork|---->process
+                           |---->process(被截斷的話→Zombie)
+2.輸入top可以看CPU記憶體等狀態
+
+  
