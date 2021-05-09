@@ -1,61 +1,72 @@
-�����ĥ|��
+鳥哥第四堂
 1.       User      Group
 
-�s�W   useradd    groupadd
+新增   useradd    groupadd
 
-�ק�   usermod    groupmod newgrp(�Ȯɪ�)
+修改   usermod    groupmod newgrp(暫時的)
        passwd     gpasswd  
 
-�R��   userdel    groupdel
+刪除   userdel    groupdel
 
-�d��     id,w,who,whoami
+查詢     id,w,who,whoami
 
-���O�ާ@�Ԩ�����
+指令操作詳見網站
 
-2.�R���b��:userdel -r �n�R�����b���A�p�G�u��userdel�|�R�����b
+2.刪除帳號:userdel -r 要刪除的帳號，如果只打userdel會刪不乾淨
 
-3.�s�بϥΪ̨å[�J�s��:useradd -G �s�� �ϥΪ�
+3.新建使用者並加入群組:useradd -G 群組 使用者
 
-4.�ϥ� passwd --stdin ���覡�ӵ����K�X�ɡA�K�X�|������ù��P history �����Ҥ��A���j�q�ظm�b���ɡA�|�O�@�ӫܦn�Ϊ��u��Gecho �K�X | passwd --stdin(�зǿ�J) �ϥΪ�
+4.使用 passwd --stdin 的方式來給予密碼時，密碼會紀錄到螢幕與 history 的環境中，對於大量建置帳號時，會是一個很好用的工具：echo 密碼 | passwd --stdin(標準輸入) 使用者
 
-5.��ϥΪ̷s�W��s�աA�ӭ쥻�s�դ��R��: usermod -a -G �s�� �ϥΪ� 
+5.把使用者新增到群組，而原本群組不刪除: usermod -a -G 群組 使用者 
 
-6.�d�ݨϥΪ̪��A: id �ϥΪ�
-7.�d�ݸs�ժ��A: grep �s�� /etc/group
+6.查看使用者狀態: id 使用者
+7.查看群組狀態: grep 群組 /etc/group
 
-8.�ɮ��ݩ�: p��pipline
-            s��socket
+8.檔案屬性: p→pipline
+            s→socket
 
 9.               File           Directory
          
-chmod u +�Sr    ���e�iŪ      �N�ɮצC��  
-      g -��
-      o =��w    �i�s��        �i�s�W/�R���ɮ� 
-      a        (���@�w�i�R) 
+chmod u +沒r    內容可讀      將檔案列表  
+      g -空
+      o =格w    可編修        可新增/刪除檔案 
+      a        (不一定可刪) 
 
-           x    �i����        �i����
+           x    可執行        可執行
            
            s    SetUID        shell(SetUID.SetGID)
                               
            t                   sticky bit
 
 
-10.���ɮק�令���P�ϥΪ�/�s��:chgrp �n������ ����H
-                               chown �n������ ����H
+10.把檔案更改成不同使用者/群組:
+   (1)chown :更改文件屬主，也可以同時更改文件跟屬組，用法如下: 
+      a.把檔案更改屬主為root: chown root 檔名
+      b.同時更改屬主和屬組都為root: chowm root:root 檔名
+      c. 僅更改屬組為root: chown :root 檔名
+   (2)chgrp :更改文件屬組，用法:chgrp [-R] 屬組名 文件名
+      ex:chgrp root 檔名
+      *-R：遞歸更改文件屬組，就是在更改某個目錄文件的屬組時，如果加上-R的參數，
+           那麽該目錄下的所有文件的屬組都會更改。
 
-11.�v��²����J�k: r=4 w=2 x=1 -=0
-   ex:rwxr-xr-x��r+w+x=7,r+-+x=5�A�ҥH�O755�A�i��chmod 755�ӥN����J
-   �p�G�����J:chmod u=rwx,g=rwx,o=rwx �n�諸�ɮסArwx���D�ػݨD���
+11.chmod：更改文件的九個屬性
+   (1)權限簡易輸入法: r=4 w=2 x=1 -=0
+      ex:rwxr-xr-x→r+w+x=7,r+-+x=5，所以是755，可用"chmod [-R] 755 文件或目錄"來代替輸入
+   (2)完整輸入:chmod [-R] u=rwx,g=rwx,o=rwx 文件或目錄，rwx看題目需求更改
+   *R：進行遞歸（recursive）的持續變更，亦即連同次目錄下的所有文件或目錄都會變更
+   (3)增加權限:EX: chmod u+x,g+w,o+x 文件或目錄
+   (4)減少權限:EX 去掉所有用戶的執行權限: chmod a-x 文件或目錄
 
-12.�ק�ɶ�:touch -t �ɶ�(05031400����) �ɮ�
+12.修改時間:touch -t 時間(05031400之類) 檔案
    
 ------------ 
-�����Ĥ���
+鳥哥第五堂
 
-1.program(�{��)�������process(�{��)[PID.Mem.CPU.state.PI.NI.UID.Name.PPID]
+1.program(程式)→執行→process(程序)[PID.Mem.CPU.state.PI.NI.UID.Name.PPID]
                            |---->process
                        fork|---->process
-                           |---->process(�Q�I�_���ܡ�Zombie)
-2.��Jtop�i�H��CPU�O���鵥���A
+                           |---->process(被截斷的話→Zombie)
+2.輸入top可以看CPU記憶體等狀態
 
   
