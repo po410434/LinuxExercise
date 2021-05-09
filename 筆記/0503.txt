@@ -53,7 +53,7 @@ chmod u +沒r    內容可讀      將檔案列表
 11.chmod：更改文件的九個屬性
    (1)權限簡易輸入法: r=4 w=2 x=1 -=0
       ex:rwxr-xr-x→r+w+x=7,r+-+x=5，所以是755，可用"chmod [-R] 755 文件或目錄"來代替輸入
-   (2)完整輸入:chmod [-R] u=rwx,g=rwx,o=rwx 文件或目錄，rwx看題目需求更改
+   (2)完整輸入:chmod [-R] u=rwx,g=rwx,o=rwx 文件或目錄，rwx看題目需求更改 , 假如o不要任何權限，那就輸入o=
    *R：進行遞歸（recursive）的持續變更，亦即連同次目錄下的所有文件或目錄都會變更
    (3)增加權限:EX: chmod u+x,g+w,o+x 文件或目錄
    (4)減少權限:EX 去掉所有用戶的執行權限: chmod a-x 文件或目錄
