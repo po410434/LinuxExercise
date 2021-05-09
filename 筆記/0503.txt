@@ -43,7 +43,7 @@ chmod u +沒r    內容可讀      將檔案列表
 10.把檔案更改成不同使用者/群組:
    (1)chown :更改文件屬主，也可以同時更改文件跟屬組，用法如下: 
       a.把檔案更改屬主為root: chown root 檔名
-      b.同時更改屬主和屬組都為root: chowm root:root 檔名
+      b.同時更改屬主和屬組都為root: chowm root:root 檔名(或者輸入chowm root.root 檔名)
       c. 僅更改屬組為root: chown :root 檔名
    (2)chgrp :更改文件屬組，用法:chgrp [-R] 屬組名 文件名
       ex:chgrp root 檔名
